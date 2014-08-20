@@ -5,11 +5,12 @@ class SessionsController < ApplicationController
 
   def create
     member = Member.find_by params[:email]
-    if member && member.authenticate params[:password]
+    if member.authenticate params[:password]
       session[:member_id] = member.id
       redirect_to dashboard_path
     else
       render 'new'
+    end
   end
 
   def destroy
