@@ -1,0 +1,8 @@
+<h2>Add a Member to SocialConstruct</h2>
+<%= simple_form_for @member do |f| %>
+  <%= f.input :email %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :role, as: :hidden, input_html: { value: "blogger" } %>
+  <%= f.submit %>
+<% end %>
