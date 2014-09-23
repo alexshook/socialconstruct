@@ -30,23 +30,14 @@ ActiveRecord::Schema.define(version: 20140820031415) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
+    t.integer  "tag_id"
     t.integer  "post_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "categories", ["post_id"], name: "index_categories_on_post_id", using: :btree
-
-  create_table "groups", force: true do |t|
-    t.string   "name"
-    t.integer  "category_id"
-    t.integer  "post_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "groups", ["category_id"], name: "index_groups_on_category_id", using: :btree
-  add_index "groups", ["post_id"], name: "index_groups_on_post_id", using: :btree
+  add_index "categories", ["tag_id"], name: "index_categories_on_tag_id", using: :btree
 
   create_table "members", force: true do |t|
     t.string   "email"
@@ -69,5 +60,14 @@ ActiveRecord::Schema.define(version: 20140820031415) do
   end
 
   add_index "posts", ["blog_id"], name: "index_posts_on_blog_id", using: :btree
+
+  create_table "tags", force: true do |t|
+    t.string   "name"
+    t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tags", ["post_id"], name: "index_tags_on_post_id", using: :btree
 
 end

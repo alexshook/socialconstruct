@@ -1,6 +1,6 @@
-class CreateCategories < ActiveRecord::Migration
+class CreateTags < ActiveRecord::Migration
   def change
-    create_table :categories do |t|
+    create_table :tags do |t|
       t.string :name
       t.references :post, index: true
 
