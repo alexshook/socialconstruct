@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    member = Member.find_by params[:email]
+    member = Member.find_by_email params[:email]
     if member.authenticate params[:password]
       session[:member_id] = member.id
       redirect_to dashboard_path
