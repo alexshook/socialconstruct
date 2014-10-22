@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'admin/dashboard#index'
 
   resources :members
-
+  resources :posts
+  resources :blogs
+  resources :categories
 end
