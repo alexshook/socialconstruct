@@ -1,5 +1,7 @@
 class BlogsController < ApplicationController
-  def index
+  # include Parser
 
+  def index
+    @posts = PostFetcher::get_latest_blog_posts
   end
 end
