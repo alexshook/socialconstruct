@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'blogs#index'
+  root to: 'categories#index'
 
   get 'signup', to: 'members#new'
   # post 'signup', to: 'member#create'
