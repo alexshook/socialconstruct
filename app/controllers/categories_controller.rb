@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
   def index
-    # @current_category = Category.find_by_name "nyfw"
+    # category = Category.find_by_name params[:name]
+    # @home_page_posts = category,postsf
   end
 
 end
