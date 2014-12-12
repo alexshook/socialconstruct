@@ -7,9 +7,11 @@ Rails.application.routes.draw do
   post 'signin', to: 'sessions#create'
   get 'signout', to: 'sessions#destroy'
   get 'dashboard', to: 'admin/dashboard#index'
+  get 'fetch', to: 'posts#create'
 
   resources :members
   resources :posts
   resources :blogs
   resources :categories
+  resources :tags
 end
