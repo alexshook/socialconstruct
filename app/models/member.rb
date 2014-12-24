@@ -8,5 +8,13 @@ class Member < ActiveRecord::Base
 
   validates :email, uniqueness: true
 
+  after_create :set_invitation_limit, if role: :admin?
+
+
+  private
+  def set_invitation_limit
+    self.invitation_limit = 50 if self.admin?
+  end
+
 end
 
