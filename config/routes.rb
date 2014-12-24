@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root to: 'categories#index'
 
-  get 'signup', to: 'members#new'
-  # post 'signup', to: 'member#create'
+  get 'invited', to: 'members#new'
+  post 'invited', to: 'member#create'
   get 'signin', to: 'sessions#new'
   post 'signin', to: 'sessions#create'
   get 'signout', to: 'sessions#destroy'

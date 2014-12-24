@@ -7,10 +7,12 @@ class MembersController < ApplicationController
 
   def create
     @member = Member.new member_params
-    if @member.save
+    invitation_token = Invitation.find_by_token params[:invited]
+    if invitation_token
+      @member.save
       redirect_to dashboard_path
     else
-      raise "Something went wrong. Please try again."
+      raise "Sorry, you must be invited to become a member of SocialConstruct."
     end
   end
 

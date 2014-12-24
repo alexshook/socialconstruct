@@ -3,6 +3,7 @@ class Admin::DashboardController < ApplicationController
 
   def index
     @member = Member.new
+    @invitation = Invitation.new
   end
 
   private
